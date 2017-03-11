@@ -1,4 +1,4 @@
-    #include "sumovore.h"
+  #include "sumovore.h"
     #include "motor_control.h"
 
     void follow_simple_curves(void);
@@ -14,11 +14,17 @@
          switch(SeeLine.B)
          {
              case 0b00111u:
-                            spin_right();
-                            break;
+                 motors_brake_all();
+                 for(char turn = 0; turn < 200; turn++)
+                spin_right();
+                break;
             case 0b11100u:
-                            spin_left();
-                            break;    
+                motors_brake_all();
+                for(char turn = 0; turn < 200; turn++)
+                {
+                           spin_left();
+                }
+                           break;    
             case 0b00100u:
             case 0b00010u:
             case 0b01000u:
@@ -46,38 +52,30 @@
     }
 
 
-    //Spins in one spot to the left
+
     void spin_left(void)
     {
       set_motor_speed(left, rev_fast, 0); 
       set_motor_speed(right, fast, 0); 
     }
-    
-    ///turns on one wheel to the left
+
     void turn_left(void)
     {
       set_motor_speed(left, stop, 0); 
       set_motor_speed(right, fast, 0); 
     }
-    
-    //move in a straight line
     void straight_fwd(void)
     {
       set_motor_speed(left, fast, 0); 
       set_motor_speed(right, fast, 0); 
     }
-    //spin in one place to the right
     void spin_right(void)
     {
       set_motor_speed(left, fast, 0); 
       set_motor_speed(right, rev_fast, 0); 
     }
-    
-    //spin on one wheel to the right
     void turn_right(void)
     {
       set_motor_speed(left, fast, 0); 
       set_motor_speed(right, stop, 0); 
     }
-    
-    
