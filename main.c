@@ -4,6 +4,7 @@
 #include "motor_control.h"
 #include "interrupts.h"
 
+//pretend i did something useful
 
 // main acts as a cyclical task sequencer
 void main(void)
