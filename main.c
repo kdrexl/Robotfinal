@@ -5,6 +5,7 @@
 #include "interrupts.h"
 
 //pretend i did something useful
+//you didnt
 
 // main acts as a cyclical task sequencer
 void main(void)
